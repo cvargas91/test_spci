@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Colabora</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!--la manito de gato-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css"
+      integrity="sha512-xiunq9hpKsIcz42zt0o2vCo34xV0j6Ny8hgEylN3XBglZDtTZ2nwnqF/Z/TTCc18sGdvCjbFInNd++6q3J0N6g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!--el autocompletar-->
+    <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/autoComplete.min.js"></script>
+  </head>
+  <body>
+    <h1>Colabora</h1>
+    <h6>Sistema de Planificación y Coordinación Institucional</h6>
+    <p>
+      {% if state == "ok" %}
+        <p>Usuarix autenticadx con su perfil OK</p>
+        <a href="/app">Hacer click aquí por favor para continuar</a>
+      {% elif state == "incompleto" %}
+        <h2>¡Hola {{ usuarioNombre }} {{ usuarioApellido }}! </h2>
+        <h3>(Esta sección es solo para pruebas, no va en producción)</h3>
+        <p>
+          Por favor, indícanos la unidad donde trabajas, y si eres el/la encargadx
+        </p>
+        <form onsubmit="onSubmit(event)">
+          <fieldset>
+            {% csrf_token %}
+            <input type="search" autocomplete="off" id="autoComplete" onchange="onBuscar()">
+            <input type="checkbox" id="soyEncargado" onchange="onEncargado(event)">
+            <label class="label-inline" for="soyEncargado">Soy el/la encargadx</label>
+            <div>
+              <input id="btn" class="button-primary" type="submit" value="Enviar" disabled>
+            </div>
+          </fieldset>
+        </form>
+      {% else %}
+      <button class="button-primary" onClick=window.location.href="/gRedirect">Iniciar con correo UAysén</button>
+      {% endif %}
+    </p>
+    {% if state == "incompleto" %}
+    <script>
+      var csrftoken = "";
+      var actor_id = "";
+      var es_encargado = false;
+
+      async function postData(url = '', data = {}) {
+        // Opciones por defecto estan marcadas con un *
+        const response = await fetch(url, {
+          method: 'POST', // *GET, POST, PUT, DELETE, etc.
+          mode: 'cors', // no-cors, *cors, same-origin
+          cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+          credentials: 'same-origin', // include, *same-origin, omit
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          redirect: 'follow', // manual, *follow, error
+          body: JSON.stringify(data) // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+      }
+
+      function onBuscar(event) {
+        actor_id="";
+        document.querySelector("#btn").disabled = true;
+      }
+
+      function onEncargado(event) {
+        es_encargado = event.target.checked;
+      }
+
+      function onSubmit(event) {
+        event.preventDefault();
+        if (actor_id=="") {
+          return;
+        }
+        var txt = "¿Trabaja ud. en " + event.target.elements.autoComplete.value;
+        if (es_encargado) {
+          txt += " y es el/la encargadx de la unidad?"
+        } else {
+          txt += "y no es el/la encargadx de la unidad?"
+        }
+        var r = confirm(txt);
+        if (r == true) {
+          postData('setActor/', { 'actor_id': actor_id, 'es_encargado' : es_encargado })
+          .then(data => {
+            console.log(data)
+            if (data['ok']==1) {
+              window.location.href='/';
+            }
+          });
+        } else {
+          console.log("Cancelaste!");
+        }
+      }
+      onDOMContentLoaded = (function(){
+        csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        const autoCompleteJS = new autoComplete(
+          {
+            placeHolder: "Ingresa el nombre de la unidad donde trabajas...",
+            data: {
+                src: {{ actores | safe }},
+                keys: ["nombre", "sigla"],
+                cache: true,
+            }
+          }
+        );
+        autoCompleteJS.input.addEventListener("selection", function (event) {
+          const feedback = event.detail;
+          autoCompleteJS.input.blur();
+          const selection = feedback.selection.value[feedback.selection.key];
+          autoCompleteJS.input.value = selection;
+          document.querySelector("#btn").disabled = false;
+          actor_id = feedback.selection.value.id;
+        });
+      })()
+    </script>
+    {% endif %}
+  </body>
+</html>

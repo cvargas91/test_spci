@@ -1,0 +1,58 @@
+categoria,dependencia,nombre_unidad,sigla,cai
+académicas,DCNT,Agronomía,AGRO,DCNT-AGRO
+académicas,DCNT,Ingeniería Civil Industrial,ICI,DCNT-ICI
+académicas,DCNT,Ingeniería Civil Informática,ICII,DCNT-ICII
+académicas,DCNT,Ingeniería Forestal,IF,DCNT-IF
+académicas,DCS,Enfermería,ENF,DCS-ENF
+académicas,DCS,Obstetricia,OBS,DCS-OBS
+académicas,DCSH,Psicología,PSI,DCSH-PSI
+académicas,DCSH,Trabajo Social,TS,DCSH-TS
+académicas,REC,Departamento de Ciencias Naturales y Tecnología,DCNT,DCNT
+académicas,REC,Departamento de Ciencias de la Salud,DCS,DCS
+académicas,REC,Departamento de Ciencias Sociales y Humanidades,DCSH,DCSH
+tácticos,CU,Auditoría,AUD,CU-AUD
+tácticos,CU,Legalidad y Control de Juricidad,LCJ,CU-LCJ
+tácticos,DAC,Biblioteca y Recursos de Aprendizaje,BRA,DAC-BRA
+tácticos,DAC,Desarrollo Académico,DA,DAC-DA
+tácticos,DAC,Desarrollo Estudiantil,DE,DAC-DE
+tácticos,DAC,Escuela de Pregrado,EPRE,DAC-EPRE
+tácticos,DAC,Escuela de Postgrado y Formación Continua,EPYFC,DAC-EPYFC
+tácticos,DAC,Secretaría Académica,SA,DAC-SA
+tácticos,DAC,Tecnologías de la Información y la Comunicación en Educación,TICE,DAC-TICE
+tácticos,DAF,Adquisiciones,ADQ,DAF-ADQ
+tácticos,DAF,Desarrollo de Personas,DP,DAF-DP
+tácticos,DAF,Finanzas,FIN,DAF-FIN
+tácticos,DAF,Infraestructura y Servicios Generales,INSG,DAF-INSG
+tácticos,DI,"Difusión, Divulgación de la Investigación y Creación Artística",DDC,DI-DDC
+tácticos,DI,Desarrollo de la Investigación,DINV,DI-DINV
+tácticos,DI,"Innovación, Tecnología y Transferencia",ITT,DI-ITT
+tácticos,DPAC,Aseguramiento de la Calidad,AC,DPAC-AC
+tácticos,DPAC,Análisis Institucional,AI,DPAC-AI
+tácticos,DPAC,Planificación y Coordinación Institucional,PCI,DPAC-PCI
+tácticos,DPAC,Tecnologías y Gestión de la Información,TGI,DPAC-TGI
+tácticos,DVCM,Comunicaciones,COM,DVCM-COM
+tácticos,DVCM,Extensión Cultura,EXT,DVCM-EXT
+tácticos,DVCM,Territorio,TE,DVCM-TE
+tácticos,REC,Equidad de Género,EG,REC-EG
+tácticos,REC,Inclusión,INC,REC-INC
+tácticos,REC,Gabinete,GAB,REC-GAB
+tácticos,REC,Relaciones Internacionales,RI,REC-RI
+tácticos,SG,Jurídica,JUR,SG-JUR
+tácticos,SG,"Oficina de Partes, Gestión Documental y Transparencia",OPGDT,SG-OPGDT
+tácticos,SG,Títulos y Grados,TG,SG-TG
+colegiado,COL,Consejo de Evaluacion de la Calidad,CEC,COL-CEC
+colegiado,COL,Consejo Superior,CS,COL-CS
+colegiado,COL,Contraloría Universitaria,CU,COL-CU
+colegiado,COL,Rectoría,REC,COL-REC
+colegiado,COL,Senado universitario,SEN,COL-SEN
+estratégicas,REC,Dirección Académica,DAC,REC-DAC
+estratégicas,REC,Dirección de Administración y Finanzas,DAF,REC-DAF
+estratégicas,REC,Dirección de Investigación,DI,REC-DI
+estratégicas,REC,Dirección de Planificación y Aseguramiento de la Calidad,DPAC,REC-DPAC
+estratégicas,REC,Dirección de Vinculación con el Medio,DVCM,REC-DVCM
+estratégicas,REC,Secretaría General,SG,REC-SG
+todos,TODOS,Colegiado,COL,TODOS-COL
+todos,TODOS,Estrategicos,ESTR,TODOS-ESTR
+todos,TODOS,Gestion academica,GA,TODOS-GA
+todos,TODOS,Operativos,OP,TODOS-OP
+todos,TODOS,Tacticos,TAC,TODOS-TAC

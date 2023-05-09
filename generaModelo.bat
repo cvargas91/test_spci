@@ -1,0 +1,1 @@
+python manage.py graph_models webapp -X Hist*,PresupuestoDocenteColaborador -o modelo.png

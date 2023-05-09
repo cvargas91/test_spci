@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Colabora</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!--la manito de gato-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css"
+      integrity="sha512-xiunq9hpKsIcz42zt0o2vCo34xV0j6Ny8hgEylN3XBglZDtTZ2nwnqF/Z/TTCc18sGdvCjbFInNd++6q3J0N6g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="column">
+          <h1>Colabora</h1>
+          <em>Sistema de Planificación y Coordinación Institucional</em>
+          <hr />
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          <h3>Hola {{ nombreUsuario }}</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          Escoge un perfil de usuario para continuar
+          <form method="post" action="/seteaPerfil/">
+            {% csrf_token %}
+            <select id="perfil" name="perfil">
+            {% for perfil in perfiles %}
+              <option value="{{ perfil.perfil }}">
+                {% if perfil.es_encargado %}
+                  (Encargadx de) 
+                {% endif %}
+                {{ perfil.perfil }}
+              </option>
+            {% endfor %}
+            </select>
+            <input type="submit" value="Continuar" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

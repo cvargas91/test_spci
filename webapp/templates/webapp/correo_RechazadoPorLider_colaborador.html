@@ -1,0 +1,10 @@
+{% extends "webapp/correo_base.html" %} {% block content %}
+<h3>Hola {{ nombre_usuario }}</h3>
+<p>
+  Tu entrega fue rechazada por el/la encargado/a de la unidad. Revisa la
+  retroalimentación para mejorarla
+</p>
+<blockquote>
+  <p><em>{{ retroalimentacion|linebreaksbr }}</em></p>
+</blockquote>
+{% endblock %}

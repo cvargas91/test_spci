@@ -1,0 +1,7 @@
+{% extends "webapp/correo_base.html" %} {% block content %}
+<h3>¡Hola {{ nombre_usuario }}!</h3>
+<p>
+  {{ nombre_colaborador }} ha ingresado un {{ tipo_entrega }} de la acción {{ id_accion }} para vuestro visto bueno
+</p>
+<p>Ahora debes aceptar o rechazar la entrega (dando una retroalimentación)</p>
+{% endblock %}

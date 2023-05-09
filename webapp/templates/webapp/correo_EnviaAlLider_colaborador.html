@@ -1,0 +1,12 @@
+{% extends "webapp/correo_base.html" %} {% block content %}
+<h3>¡Hola {{ nombre_usuario }}!</h3>
+<p>
+  Tu {{ tipo_entrega }} ha sido enviada a encargadas/os de las unidades
+  responsables de la acción {{ id_accion }}
+</p>
+<p>
+  Significa que ahora debes esperar a que sea aceptado por el/la encargado/a de la
+  unidad responsable, para que luego sea revisado por el equipo UPCI, también puede ser 
+  rechazado por alguno de los anteriores para la mejora de la entrega
+</p>
+{% endblock %}

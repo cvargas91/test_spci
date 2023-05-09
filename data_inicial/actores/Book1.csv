@@ -1,0 +1,53 @@
+CAI ,Sigla ,Nombre unidad ,Dependencia 
+Rectoría ,REC ,Rectoría ,
+REC-GAB ,GAB ,Gabinete ,Rectoría 
+REC-RI ,RI ,Relaciones Internacionales ,Rectoría 
+REC-EG ,EG ,Equidad de Género ,Rectoría 
+SG ,SG ,Secretaría General ,Rectoría 
+SG-JUR ,JUR ,Jurídica ,SG 
+SG-TG ,TG ,Títulos y Grados ,SG 
+SG-OPGDT ,OPGDT ,"Oficina de Partes, Gestión Documental y Transparencia ",SG 
+CU ,CU ,Contraloría Universitaria ,
+CU-AUD ,AUD ,Auditoría ,CU 
+CU-LCJ ,LCJ ,Legalidad y Control de Juricidad ,CU 
+DAC ,DAC ,Dirección Académica ,Rectoría 
+DAC-SA ,SA ,Secretaría Académica ,DAC 
+DAC-BRA ,BRA ,Biblioteca y Recursos de Aprendizaje ,DAC 
+DAC-EPRE ,EPRE ,Escuela de Pregrado ,DAC 
+DAC-EPYFC ,EPYFC ,Escuela de Postgrado y Formación Continua ,DAC 
+DAC-DE ,DE ,Desarrollo Estudiantil ,DAC 
+DAC-DA ,DA ,Desarrollo Académico ,DAC 
+DAC-TICE ,TICE ,Tecnologías de la Información y la Comunicación en Educación ,DAC 
+DI ,DI ,Dirección de Investigación ,Rectoría 
+DI-DINV ,DINV ,Desarrollo de la Investigación ,DI 
+DI-ITT ,ITT ,"Innovación, Tecnología y Transferencia ",DI 
+DI-DD ,DDC ,"Difusión, Divulgación de la Investigación y Creación Artística ",DI 
+DVcM ,DVCM ,Dirección de Vinculación con el Medio ,Rectoría 
+DVcM-TE ,TE ,Territorio ,DVcM 
+DVcM-COM ,COM ,Comunicaciones ,DVcM 
+DVcM-EXT ,EXT ,Extensión Cultura ,DVcM 
+DAF ,DAF ,Dirección de Administración y Finanzas ,Rectoría 
+DAF-FIN ,FIN ,Finanzas ,DAF 
+DAF-DP ,DP ,Desarrollo de Personas ,DAF 
+DAF-INSG ,INSG ,Infraestructura y Servicios Generales ,DAF 
+DAF-ADQ ,ADQ ,Adquisiciones ,DAF 
+DPAC ,DPAC ,Dirección de Planificación y Aseguramiento de la Calidad ,Rectoría 
+DPAC-PCI ,PCI ,Planificación y Coordinación Institucional ,DPAC 
+DPAC-AC ,AC ,Aseguramiento de la Calidad ,DPAC 
+DPAC-AI ,AI ,Análisis Institucional ,DPAC 
+DPAC-TGI ,TGI ,Tecnologías y Gestión de la Información ,DPAC 
+DCS ,DCS ,Departamento de Ciencias de la Salud ,Rectoría 
+DCS-OBS ,OBS ,Obstetricia ,DCS 
+DCS-ENF ,ENF ,Enfermería ,DCS 
+DCNT ,DCNT ,Departamento de Ciencias Naturales y Tecnología ,Rectoría 
+DCNT-AGRO ,AGRO ,Agronomía ,DCNT 
+DCNT-ICI ,ICI ,Ingeniería Civil Industrial ,DCNT 
+DCNT-IF ,IF ,Ingeniería Forestal ,DCNT 
+DCNT-ICII ,ICII ,Ingeniería Civil Informática ,DCNT 
+DCSH ,DCSH ,Departamento de Ciencias Sociales y Humanidades ,Rectoría 
+DCSH-TS ,TS ,Trabajo Social ,DCSH 
+DCSH-PSI ,PSI ,Psicología ,DCSH
+COLEGIADO,COL,Colegiado,
+COL-CEC,CEC,Consejo de Evaluacion de la Calidad,COLEGIADO
+COL-CS,CS,Consejo Superior,COLEGIADO
+COL-SEN,SEN,Senado universitario,COLEGIADO

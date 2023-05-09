@@ -1,0 +1,9 @@
+{% extends "webapp/correo_base.html" %} {% block content %}
+<h3>Hola {{ nombre_usuario }}</h3>
+<p>
+   Se ha rechazado el {{ tipo_entrega }} de la acción {{ id_accion }}
+</p>
+<blockquote>
+  <p><em>{{ retroalimentacion|linebreaksbr }}</em></p>
+</blockquote>
+{% endblock %}

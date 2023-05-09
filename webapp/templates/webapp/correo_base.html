@@ -1,0 +1,22 @@
+{% load inlinecss %} {% inlinecss "milligram.css" %}
+
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title>Colabora</title>
+  </head>
+  <body>
+    <div class="container">
+      {% block content %}{% endblock %}
+      <br />
+      <p>Gracias por usar <a href="https://colabora.uaysen.cl">Colabora</a></p>
+      <p>
+        Unidad de Tecnologías y Gestión de la Información (UTGI)<br />
+        Dirección de Planificación y Aseguramiento de la Calidad (DPAC)<br />
+        Universidad de Aysén (UAysén)
+      </p>
+    </div>
+  </body>
+</html>
+{% endinlinecss %}

@@ -1,0 +1,677 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    </head>
+    <meta charset="utf-8" />
+    <body>
+        <table style="margin-left:3pt; margin-right:35pt">
+            <tr>
+                <td>
+                    <i class="material-icons-outlined">
+                        <!--Icono-->
+                    </i>
+                </td>
+                <td colspan="7">
+                    <p style="margin-top:0pt; margin-bottom:0pt; text-align:left; color:#385280; font-size:11pt">
+                        <strong>Reporte Medios de Verificación</strong>                        
+                    </p>
+                    <p style="margin-top:0pt; margin-bottom:0pt; text-align:left; color:#385280; font-size:8pt">
+                        Planificación Operativa Anual
+                    </p>
+                    <p style="margin-top:0pt; margin-bottom:0pt; text-align:left; color:#385280; font-size:7pt">
+                        {%for reporte in reportes%}
+                        <strong>
+                            <span style="background-color:#d9e2f3"> {{reporte.modificado|date:'F'}} 2022</span>
+                        </strong>
+                        {%endfor%}
+                    </p>
+                </td>
+                <td colspan="6">
+                    <p style="text-align:right; margin-bottom:0pt">
+                        <img 
+                            src="../static/Colabora-logo_recortado.png"
+                            name="uaysen-nuevo-1.png" 
+                            align="center" 
+                            width="118" 
+                            height="25" 
+                            />
+                    </p>
+                            <p align="center" style="color:#385280; font-size:4pt;padding-left:90pt; padding-bottom:6pt">
+                                Plataforma de Planificación y Coordinación <br/>                                
+                                    Institucional UAysén
+                            </p>
+                    
+                </td>
+                <td>
+                    <p style="text-align:right;">
+                            <img 
+                                src="../static/uaysen-nuevo-1.png"
+                                name="uaysen-nuevo-1.png" 
+                                align="center" 
+                                width="34" 
+                                height="52" 
+                                border="0"/>
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+        
+        
+            <p style="font-size:8pt; padding-left:36pt">
+                <strong style="color:#385280;">.- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -.
+                </strong>
+            </p>
+
+            {% for reporte in reportes %}
+                {# Ciclo de acciones incluídas en el reporte#}
+                {% for accion in reporte.reporte_acciones.all %}
+                <div align="center" style="margin-left:35pt; margin-right:35pt">
+                    <table cellspacing="5" cellpadding="1">
+                        <td>
+                            <strong style="text-align:center; color:#385280; font-size:10pt">
+                                Título:
+                            </strong>    
+                        </td>
+                        <tr>
+                            <td>
+                                <div style="background-color:#fcefd5;">
+                                    <p style="color:#385280; font-size:8pt; padding-top:5pt;padding-bottom:3pt;align:center">
+                                        <b>{{accion.accion.titulo}}</b>
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+                        <td>
+                            <table cellpadding="0" cellspacing="0">
+                                <td>
+                                    <p style="color:#385280; font-size:8pt; padding-top:8pt;padding-bottom:0pt;align:center;">
+                                        <b>Identificador acción:</b>
+                                    </p>
+                                </td>
+        
+                                <td>
+                                    <p style="color:#385280; font-size:8pt; padding-top:8pt;padding-bottom:0pt;align:center">
+                                        <b>Unidad Responsable:</b>
+                                    </p>
+                                </td>
+                                
+                                <table style="margin-top:0pt">
+                                    <td></td>
+
+                                    <td style="background-color:#fcefd5;" colspan="6">
+                                        <p style="color:#385280; font-size:8pt; padding-top:8pt;padding-bottom:3pt;align:center;">
+                                            {{accion.accion.id_uaysen}}
+                                        </p>
+                                    </td>
+                                        
+                                    <td></td>
+
+                                    <td style="background-color:#fcefd5; " colspan="6">
+                                        <p style="color:#385280; font-size:8pt; padding-top:8pt;padding-bottom:3pt;align:center">
+                                            {{reporte.actor.sigla}}
+                                        </p>
+                                    </td>
+
+                                    <td></td>
+                                </table>
+                            </table>
+                        </td>
+                        
+                        <table cellpadding="0" cellspacing="0" style="margin-top:5pt">
+                            <td>
+                                <strong style="text-align:center; color:#385280; font-size:8pt">
+                                    Tributa Proceso de Acreditación:
+                                </strong>    
+                            </td>
+                            <tr>
+                                <td>
+                                    <div style="background-color:#fcefd5; margin-left:2pt; margin-right:2pt">
+                                        <p style="color:#385280; font-size:8pt; padding-top:6pt;padding-bottom:3pt;text-align:center">
+                                            {%if accion.accion.origen == "PMI"%}
+                                                Proceso de Acreditación.
+                                            {%elif accion.accion.estrategias.all|length >= 1 %}
+                                                Proceso de Acreditación.
+                                            {%else%}
+                                                No tributa.
+                                            {%endif%}
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </table>
+                </div>
+                {#</div>#}
+                
+                <table style="margin-top:30pt;">
+                    <td>
+                        <!--Icono-->
+                    </td>
+                    <td colspan="9">                            
+                        <table cellpadding="0" cellspacing="0" style="width:441.8pt; border:0.75pt solid #385280;  margin-left:3pt">
+                            <td >
+                                <p style="color:#385280; padding-top:6pt; padding-right:80pt">
+                                    <b>1.- Evaluación entrega a Medios de Verificación</b>
+                                </p>
+                            </td>
+                        </table>
+                    </td>   
+                    <td colspan="5">
+                        <p style="padding-top:4pt">
+                            <strong style="color:#385280;margin-top:15pt">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -.
+                            </strong>
+                        </p>                    
+                    </td>
+                </table>
+                </br>
+            
+                <div align="center" style="margin-left:35pt; margin-right:35pt">
+                    {# Ciclo para Funciones (si existen) de la accion #}
+                    {% if accion.reporte_funciones.all %}
+                        {% for reporteFuncion in accion.reporte_funciones.all %}
+                            <table cellspacing="5" cellpadding="1">
+                                <td>
+                                    <strong style="text-align:center; color:#385280; font-size:10pt;">
+                                        Función:
+                                    </strong>    
+                                </td>
+                                <tr>
+                                    <td>
+                                        <div style="border: solid 0 #385280; padding-left:0.5pt;background-color:#fcefd5;">
+                                            <p style="color:#385280; font-size:8pt; padding-top:9pt;padding-bottom:3pt;text-align:left; padding-left:70pt;padding-right:50pt">
+                                                <b>{{reporteFuncion.id_tactica}} | </b>
+                                                <b>{{reporteFuncion.funcion}}</b>
+                                            </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <table style="margin-top:8pt;width:10%;">
+                                    <tr>
+                                        <td style="">
+                                            <p style="color:#385280; font-size:8pt; padding-top:5pt;padding-bottom:3pt;align:center">
+                                                <b>MDV</b>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p style="color:#385280; font-size:8pt; padding-top:5pt;padding-bottom:3pt;align:center">
+                                                <b>Indicador avance</b>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <!--<tr>-->
+                                    <table style="width: 80%;padding-left:1pt">
+                                        <td colspan="8">
+                                            <div style="border: solid 0 #385280; padding-left:0.5pt;background-color:#d9e2f3;">
+                                                <p style="color:#385280; font-size:8pt; padding-top:5pt;padding-bottom:3pt;text-align:left;padding-left:25pt">
+                                                        {% for indicador in reporteFuncion.funcion.indicador_set.all %}
+                                                            {{accion.accion.id_uaysen}}_{{reporteFuncion.id_tactica}}_ {{indicador.nombreVerificador}}
+                                                        {% endfor %}
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td colspan="6" style="border: solid 0 #385280; padding-left:0.5pt;background-color:#d9e2f3; margin-right: 80%;">
+                                            <div style="border: solid 0 #385280; padding-left:0.5pt;background-color:#d9e2f3;">
+                                                <p style="color:#385280; font-size:8pt; padding-top:5pt;padding-bottom:3pt;align:center">
+                                                    <b>{{reporteFuncion.indicador}}%</b>
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td style="background-color:#00000;">
+                                        </td>
+                                    </table>
+                                </table>
+                                <table style="margin-top:10pt">
+                                    <tr>
+                                        <td>
+                                            <p style="color:#385280; font-size:8pt; padding-top:2pt;padding-bottom:0pt;align:center">
+                                                <b>Comentarios al cumplimiento</b>
+                                            </p>
+                                        </td>
+                                    </tr>
+
+                                    <table style="margin-top:0pt">
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td colspan="13" style="border: solid 0 #385280; padding-left:0.5pt;background-color:#d9e2f3; margin-right: 80%;">
+                                                <p style="color:#385280; font-size:8pt; padding-top:5pt;padding-bottom:3pt;align:center">
+                                                    {{reporteFuncion.comentario_cumplimiento}}
+                                                </p>
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </table>
+
+                                <p style="font-size:8pt;">
+                                    <strong style="color:#385280;">.- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -.
+                                    </strong>
+                                </p>
+                            </table>                            
+                        {%endfor%}
+                        {#Fin validacion Funciones disponibles#}
+                    {% endif %}
+
+                    {# Ciclo para Hitos (si existen) de la accion #}
+                    {% if accion.reporte_hitos.all %}
+                        {% for reporteHito in accion.reporte_hitos.all %}
+                            <table cellspacing="5" cellpadding="1" style="margin-top:10pt">
+                                <td>
+                                    <strong style="text-align:center; color:#385280; font-size:10pt;">
+                                        Hito:
+                                    </strong>    
+                                </td>
+
+                                <tr>                                
+                                    <td>
+                                        <div style="border: solid 0 #385280;background-color:#fcefd5;">
+                                            <p style="color:#385280; font-size:8pt; padding-top:9pt;padding-bottom:3pt;text-align:left; padding-left:70pt; padding-right:50pt">
+                                                <b>{{reporteHito.id_tactica}} | </b>
+                                                <b>{{reporteHito.hito}}</b>
+                                            </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <table style="margin-top:8pt;width:10%">
+                                    <tr>
+                                        <td></td>
+                                        
+                                        <td colspan="5">
+                                            <p style="color:#385280; font-size:8pt; padding-top:5pt;padding-bottom:3pt;align:center">
+                                                <b>MdV</b>
+                                            </p>
+                                        </td>
+                                        
+                                        <td></td>
+
+                                        <td colspan="3">
+                                            <p style="color:#385280; font-size:8pt; padding-top:5pt;padding-bottom:3pt;align:center">
+                                                <b>Logro</b>
+                                            </p>
+                                        </td>
+                                        
+                                        <td></td>
+                                    
+                                        <td colspan="5">
+                                            <p style="color:#385280; font-size:8pt; padding-top:5pt;padding-bottom:3pt;align:center">
+                                                <b>Indicador avance</b>
+                                            </p>
+                                        </td>
+                                    
+                                        <td></td>
+                                    </tr>
+                                    
+                                    <table style="width: 80%;padding-left:36pt" cellpadding="0">
+                                        <td></td>
+                                        
+                                        <td colspan="5" style="border: solid 0 #385280; padding-left:0pt;background-color:#d9e2f3; margin-right: 80%;">
+                                            <p style="color:#385280; font-size:8pt; padding-top:15pt;padding-bottom:3pt;align:center">
+                                                {% for mdv in reporteHito.mdvs.all %}
+                                                    {{accion.accion.id_uaysen}}_{{reporteHito.id_tactica}}_ {{mdv.nombre|wordwrap:18}}
+                                                    <br>
+                                                {% endfor %}
+                                            </p>
+                                        </td>
+                                        
+                                        <td></td>
+                                        
+                                        <td colspan="2" style="border: solid 0 #385280; padding-left:0.5pt; margin-right: 80%; background-color:#d9e2f3;">
+                                            <p style="color:#385280; font-size:8pt; padding-top:5pt;padding-bottom:3pt;align:center; padding-left:9pt;">
+                                                {{reporteHito.indicador}}%
+                                            </p>
+                                        </td>
+                                        
+                                        <td></td>
+                                        
+                                        <td colspan="5" style="border: solid 0 #385280; padding-left:0.5pt;background-color:#d9e2f3; margin-right: 80%;">
+                                            <p style="color:#385280; font-size:8pt; padding-top:5pt;padding-bottom:3pt;align:center">
+                                                {{reporteHito.indicador_logro}}
+                                            </p>
+                                        </td>
+                                    
+                                        <td></td>
+                                    </table>
+                                    
+                                    <table style="margin-top:10pt">
+                                        <tr>
+                                            <td>
+                                                <p style="color:#385280; font-size:8pt; padding-top:2pt;padding-bottom:0pt;align:center">
+                                                    <b>Comentarios al cumplimiento</b>
+                                                </p>
+                                            </td>
+                                        </tr>
+
+                                        <table style="margin-top:0pt">
+                                            <tr>
+                                                <td></td>
+
+                                                <td colspan="13" style="border: solid 0 #385280; padding-left:0.5pt;background-color:#d9e2f3; margin-right: 80%;">
+                                                    <p style="color:#385280; font-size:8pt; padding-top:5pt;padding-bottom:3pt;align:center">
+                                                        {{reporteHito.comentario_cumplimiento}}
+                                                    </p>
+                                                </td>
+                                                
+                                                <td></td>
+                                            </tr>
+                                        </table>
+                                    </table>
+                                <!--<tr>-->
+                                </table>
+                                <p style="font-size:8pt;">
+                                    <strong style="color:#385280;">.- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -.
+                                    </strong>
+                                </p>
+                            </table>
+                        {%endfor%}
+                        {#Fin validacion Hitos#}
+                    {%endif%}
+                </div>
+                    <table style="margin-top:30pt;">
+                        <td>
+                            <!--Icono-->
+                        </td>
+                        <td colspan="9">                            
+                            <table cellpadding="0" cellspacing="0" style="width:441.8pt; border:0.75pt solid #385280;  margin-left:3pt">
+                                <!--<tr>-->
+                                    <td >
+                                        <p style="color:#385280; padding-top:6pt; padding-right:80pt">
+                                            <b>2.- Evaluación final</b>
+                                        </p>
+                                    </td>
+                                <!--</tr>-->
+                            </table>
+                        </td>   
+                        <td colspan="5">
+                            <p style="padding-top:4pt">
+                                <strong style="color:#385280;margin-top:15pt">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -.
+                                </strong>
+                            </p>
+                            
+                        </td>
+                    </table>
+                    </br>
+
+                    <div align="center" style="margin-left:25pt; margin-right:25pt">
+                        <table cellspacing="5" cellpadding="1" style="margin-top:10pt">
+                            <td>
+                                <strong style="text-align:center; color:#385280; font-size:10pt;">
+                                    Estado de ejecución:
+                                </strong>    
+                            </td>
+    
+                            <tr>                                
+                                <td>
+                                    <div style="border: solid 0 #385280;background-color:#fcefd5; margin-left:10pt;margin-right:10pt">
+                                        <p style="color:#385280; font-size:8pt; padding-top:9pt;padding-bottom:3pt;text-align:center; padding-left:0pt">
+                                            <strong>{{accion.estado_ejecucion}}</strong>
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <table style="margin-top:0pt;width:10%">
+                                <tr style="padding-left:5pt">
+                                    
+                                    
+                                    <td colspan="5">
+                                        <p style="color:#385280; font-size:8pt; padding-top:5pt;padding-bottom:3pt;margin-left:6pt">
+                                            <b>Justificación por contingencia:</b>
+                                        </p>
+                                    </td>
+                                    
+                                    
+    
+                                    <td colspan="5">
+                                        <p style="color:#385280; font-size:8pt; padding-top:5pt;padding-bottom:3pt;align:center">
+                                            <b>Documento de justificación por contingencia:</b>
+                                        </p>
+                                    </td>
+                                    
+                                    
+                                
+                                    <td colspan="5">
+                                        <p style="color:#385280; font-size:8pt; padding-top:5pt;padding-bottom:3pt;margin-right:6pt;padding-right:19pt">
+                                            <b>Fecha entrega reporte:</b>
+                                        </p>
+                                    </td>
+                                
+                                    
+                                </tr>
+                                
+                                <table style="width: 80%;" cellpadding="0">
+                                    <td style="padding-left:36pt"></td>
+                                    
+                                    <td colspan="5" style="border: solid 0 #385280; padding-left:5.5pt;background-color:#d9e2f3; margin-right: 80%;">
+                                        <p style="color:#385280; font-size:8pt; padding-top:5pt;padding-bottom:3pt;align:center;padding-left:0pt">
+                                            {{accion.justificacion_contingencia}}
+                                        </p>
+                                    </td>
+                                    
+                                    <td></td>
+                                    
+                                    <td colspan="5" style="border: solid 0 #385280; padding-left:0.5pt; margin-right: 80%; background-color:#d9e2f3;">
+                                        <p style="color:#385280; font-size:8pt; padding-top:5pt;padding-bottom:3pt;align:center; padding-left:9pt;">
+                                            {{accion.reporte_justificacion_contingencia}}
+                                        </p>
+                                    </td>
+                                    
+                                    <td></td>
+                                    
+                                    <td colspan="5" style="border: solid 0 #385280; padding-left:8.5pt;background-color:#d9e2f3; margin-right: 80%;">
+                                        <p style="color:#385280; font-size:8pt; padding-top:5pt;padding-bottom:3pt;align:center">
+                                            {{reporte.modificado|date:'Y-m-d'}}
+                                        </p>
+                                    </td>
+                                
+                                    <td style="padding-right:36pt"></td>
+                                </table>
+                            </table>
+                            <br/>
+                            <br/>
+                            <p style="font-size:8pt;">
+                                <strong style="color:#385280;">.- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -.
+                                </strong>
+                            </p>
+                            <br/>
+                    </div>
+                    
+                {%endfor%}
+
+                
+                <div align="center" style="margin-left:35pt; margin-right:35pt">
+                    <table cellspacing="5" cellpadding="1" style="margin-top:10pt">
+                        <td>
+                            <strong style="text-align:center; color:#385280; font-size:10pt;">
+                                Analista:
+                            </strong>    
+                        </td>
+
+                        <tr>                                
+                            <td>
+                                <div style="border: solid 0 #385280;background-color:#fcefd5;">
+                                    <p style="color:#385280; font-size:8pt; padding-top:9pt;padding-bottom:3pt;text-align:center; padding-left:0pt">
+                                        <strong>{{reporte.usuario.first_name}} {{reporte.usuario.last_name}}</strong>
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+                        <table cellspacing="5" cellpadding="1" style="margin-top:10pt">
+                            <td>
+                                <strong style="text-align:center; color:#385280; font-size:10pt;">
+                                    Recomendaciones:
+                                </strong>    
+                            </td>
+    
+                            <tr>                                
+                                <td>
+                                    <div style="border: solid 0 #385280;background-color:#d9e2f3;">
+                                        <p style="color:#385280; font-size:8pt; padding-top:9pt;padding-bottom:3pt;text-align:center; padding-left:0pt;padding-left:8pt;padding-right:8pt">
+                                            {{reporte.recomendacion}}
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </table>
+                    <br/>
+                            <br/>
+                            <p style="font-size:8pt;">
+                                <strong style="color:#385280;">.- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -.
+                                </strong>
+                            </p>
+                            <br/>
+
+                            
+                                <table style="width: 80%;padding-left:1pt;height:30pt ">
+                                    <td style="background-color:#00000;">
+                                    </td>
+                                    <td colspan="4" style="border: solid 0 #fcefd5; padding-left:0.5pt;background-color:#fcefd5;">
+                                        <!--<div style="border: solid 2 #fcefd5; padding-left:0.5pt;background-color:#fcefd5;">-->
+                                            <p style="color:#385280;padding-left:5pt; font-size:8pt; padding-top:8pt;padding-bottom:3pt;align:center; text-align:left">
+                                                <strong>Implementado</strong>
+                                            </p>
+                                        <!--</div>-->
+                                    </td>
+                                    <td style="background-color:#00000;">
+                                    </td>
+                                    <td colspan="8" style="border: solid 4 #FFFFFF; padding-left:0.5pt;background-color:#d9e2f3; margin-right: 80%;">
+                                        <div style="border: solid 0 #385280; padding-left:0.5pt;background-color:#d9e2f3;">
+                                            <p style="color:#385280; font-size:8pt; padding-top:5pt;padding-bottom:3pt;align:center; text-align:left">
+                                                Todos los MDV fueron cumplidos en el plazo establecido en la acción.
+                                            </p>
+                                        </div>
+                                    </td>
+                                    <td style="background-color:#00000;">
+                                    </td>
+                                </table>
+
+                                <table style="width: 80%;padding-left:1pt; padding-top:2pt; padding-bottom:2pt;margin-top:4pt ; height:35pt">
+                                    <td style="background-color:#00000;">
+                                    </td>
+                                    <td colspan="4" style="border: solid 0 #fcefd5; padding-left:0.5pt;background-color:#fcefd5;">
+                                        <!--<div style="border: solid 2 #fcefd5; padding-left:0.5pt;background-color:#fcefd5;">-->
+                                            <p style="color:#385280;padding-left:5pt; font-size:8pt; padding-top:8pt;padding-bottom:3pt;align:center; text-align:left">
+                                                <strong>No implementado</strong>
+                                            </p>
+                                        <!--</div>-->
+                                    </td>
+                                    <td style="background-color:#00000;">
+                                    </td>
+                                    <td colspan="8" style="border: solid 4 #FFFFFF; padding-left:0.5pt;background-color:#d9e2f3; margin-right: 80%;">
+                                        <div style="border: solid 0 #385280; padding-left:0.5pt;background-color:#d9e2f3;">
+                                            <p style="color:#385280; font-size:8pt; padding-top:5pt;padding-bottom:3pt;align:center; text-align:left">
+                                                No se cumplen todos los MdV en el plazo establecido en la acción.
+                                            </p>
+                                        </div>
+                                    </td>
+                                    <td style="background-color:#00000;">
+                                    </td>
+                                </table>
+
+                                <table style="width: 80%;padding-left:1pt; padding-top:2pt; padding-bottom:2pt; margin-top:4pt;height:35pt">
+                                    <td style="background-color:#00000;">
+                                    </td>
+                                    <td colspan="4" style="border: solid 2 #fcefd5; padding-left:0.5pt;background-color:#fcefd5;">
+                                        <!--<div style="border: solid 2 #fcefd5; padding-left:0.5pt;background-color:#fcefd5;">-->
+                                            <p style="color:#385280;padding-left:5pt; font-size:8pt; padding-top:8pt;padding-bottom:3pt;align:center; text-align:left">
+                                                <strong>En proceso</strong>
+                                            </p>
+                                        <!--</div>-->
+                                    </td>
+                                    <td style="background-color:#00000;">
+                                    </td>
+                                    <td colspan="8" style="border: solid 4 #FFFFFF; padding-left:0.5pt;background-color:#d9e2f3; margin-right: 80%;">
+                                        <div style="border: solid 0 #385280; padding-left:0.5pt;background-color:#d9e2f3;">
+                                            <p style="color:#385280; font-size:8pt; padding-top:5pt;padding-bottom:3pt;align:center; text-align:left">
+                                                Se cumple al menos un MdV, restantes están en desarrollo en plazo de ejecución.
+                                            </p>
+                                        </div>
+                                    </td>
+                                    <td style="background-color:#00000;">
+                                    </td>
+                                </table>
+
+                                <table style="width: 80%;padding-left:1pt; padding-top:2pt; padding-bottom:2pt;margin-top:4pt ; height:35pt">
+                                    <td style="background-color:#00000;">
+                                    </td>
+                                    <td colspan="4" style="border: solid 2 #fcefd5; padding-left:0.5pt;background-color:#fcefd5;">
+                                        <!--<div style="border: solid 2 #fcefd5; padding-left:0.5pt;background-color:#fcefd5;">-->
+                                            <p style="color:#385280;padding-left:5pt; font-size:8pt; padding-top:8pt;padding-bottom:3pt;align:center; text-align:left">
+                                                <strong>Pendiente</strong>
+                                            </p>
+                                        <!--</div>-->
+                                    </td>
+                                    <td style="background-color:#00000;">
+                                    </td>
+                                    <td colspan="8" style="border: solid 4 #FFFFFF; padding-left:0.5pt;background-color:#d9e2f3; margin-right: 80%;">
+                                        <div style="border: solid 0 #385280; padding-left:0.5pt;background-color:#d9e2f3;">
+                                            <p style="color:#385280; font-size:8pt; padding-top:5pt;padding-bottom:3pt;align:center; text-align:left">
+                                                No se cumple ni un MDV, pero la acción sigue en plazo de ejecución.
+                                            </p>
+                                        </div>
+                                    </td>
+                                    <td style="background-color:#00000;">
+                                    </td>
+                                </table>
+
+                                <table style="width: 80%;padding-left:1pt; padding-top:2pt; padding-bottom:2pt; margin-top:4pt">
+                                    <td style="background-color:#00000;">
+                                    </td>
+                                    <td colspan="4" style="border: solid 2 #fcefd5; padding-left:0.5pt;background-color:#fcefd5;">
+                                        <!--<div style="border: solid 2 #fcefd5; padding-left:0.5pt;background-color:#fcefd5;">-->
+                                            <p style="color:#385280;padding-left:5pt; font-size:8pt; padding-top:8pt;padding-bottom:3pt;align:center; text-align:left">
+                                                <strong>No aplicable</strong>
+                                            </p>
+                                        <!--</div>-->
+                                    </td>
+                                    <td style="background-color:#00000;">
+                                    </td>
+                                    <td colspan="8" style="border: solid 4 #FFFFFF; padding-left:0.5pt;background-color:#d9e2f3; margin-right: 20%;">
+                                        <div style="border: solid 0 #385280; padding-left:0.5pt;background-color:#d9e2f3;">
+                                            <p style="color:#385280; font-size:8pt; padding-top:2pt;padding-bottom:2pt;align:center; text-align:left">
+                                                No se ejecuta la F o H por factores externos del responsable de la ejecución *Presenta justificación por contingencia.
+                                            </p>
+                                        </div>
+                                    </td>
+                                    <td style="background-color:#00000;">
+                                    </td>
+                                </table>
+
+                                <table style="width: 80%;padding-left:1pt; padding-top:2pt;  height:35pt; margin-top:4pt">
+                                    <td style="background-color:#00000;">
+                                    </td>
+                                    <td colspan="4" style="border: solid 0 #fcefd5; padding-left:0.5pt;background-color:#fcefd5;height:100pt">
+                                        <!--<div style="border: solid 0 #fcefd5; padding-left:0.5pt;background-color:#fcefd5;height:100pt">-->
+                                            <p style="color:#385280;padding-left:5pt; font-size:8pt; padding-top:8pt;padding-bottom:3pt;align:center; text-align:left">
+                                                <strong>No cumplido</strong>
+                                            </p>
+                                        <!--</div>-->
+                                    </td>
+                                    <td style="background-color:#00000;">
+                                    </td>
+                                    <td colspan="8" style="border: solid 9 #FFFFFF; padding-left:0.5pt;background-color:#d9e2f3;">
+                                        <div style="border: solid 0 #385280; padding-left:0.5pt;background-color:#d9e2f3;">
+                                            <p style="color:#385280; font-size:8pt; padding-top:5pt;padding-bottom:3pt;align:center; text-align:left">
+                                                Acción se deja obsoleta.
+                                            </p>
+                                        </div>
+                                    </td>
+                                    <td style="background-color:#00000;">
+                                    </td>
+                                </table>
+                                <br/>
+                            <p style="font-size:8pt;">
+                                <strong style="color:#385280;">.- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -.
+                                </strong>
+                            </p>
+                            <br/>
+                            
+                </div>                
+            {%endfor%}
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,44 @@
+digraph {
+	subgraph cluster_webapp_HistoricalVerificador_estado {
+		graph [label="webapp.HistoricalVerificador.estado"]
+	}
+	subgraph cluster_webapp_Verificador_estado {
+		graph [label="webapp.Verificador.estado"]
+		"webapp.Verificador.estado.Finalizado" [label=Finalizado shape=doublecircle]
+		"webapp.Verificador.estado.Enviado al líder" [label="Enviado al líder" shape=circle]
+		"webapp.Verificador.estado._initial" [label="" shape=point]
+		"webapp.Verificador.estado._initial" -> "webapp.Verificador.estado.Enviado al líder"
+		"webapp.Verificador.estado.Rechazado por líder" [label="Rechazado por líder" shape=circle]
+		"webapp.Verificador.estado.Rechazado por UPCI" [label="Rechazado por UPCI" shape=circle]
+		"webapp.Verificador.estado.Enviado a UPCI" [label="Enviado a UPCI" shape=circle]
+		"webapp.Verificador.estado.Borrador" [label=Borrador shape=circle]
+		"webapp.Verificador.estado.Enviado a UPCI" -> "webapp.Verificador.estado.Finalizado" [label=acepta_UPCI]
+		"webapp.Verificador.estado.Enviado al líder" -> "webapp.Verificador.estado.Rechazado por líder" [label=rechaza_lider]
+		"webapp.Verificador.estado.Rechazado por UPCI" -> "webapp.Verificador.estado.Enviado a UPCI" [label=envia_a_UPCI]
+		"webapp.Verificador.estado.Rechazado por líder" -> "webapp.Verificador.estado.Enviado al líder" [label=envia_a_lider]
+		"webapp.Verificador.estado.Enviado a UPCI" -> "webapp.Verificador.estado.Rechazado por UPCI" [label=rechazado_UPCI]
+		"webapp.Verificador.estado.Enviado al líder" -> "webapp.Verificador.estado.Enviado a UPCI" [label=envia_a_UPCI]
+		"webapp.Verificador.estado.Borrador" -> "webapp.Verificador.estado.Enviado al líder" [label=envia_a_lider]
+	}
+	subgraph cluster_webapp_HistoricalProducto_estado {
+		graph [label="webapp.HistoricalProducto.estado"]
+	}
+	subgraph cluster_webapp_Producto_estado {
+		graph [label="webapp.Producto.estado"]
+		"webapp.Producto.estado.Finalizado" [label=Finalizado shape=doublecircle]
+		"webapp.Producto.estado.Rechazado por UPCI" [label="Rechazado por UPCI" shape=circle]
+		"webapp.Producto.estado.Enviado a UPCI" [label="Enviado a UPCI" shape=circle]
+		"webapp.Producto.estado.Enviado al líder" [label="Enviado al líder" shape=circle]
+		"webapp.Producto.estado._initial" [label="" shape=point]
+		"webapp.Producto.estado._initial" -> "webapp.Producto.estado.Enviado al líder"
+		"webapp.Producto.estado.Rechazado por líder" [label="Rechazado por líder" shape=circle]
+		"webapp.Producto.estado.Borrador" [label=Borrador shape=circle]
+		"webapp.Producto.estado.Enviado a UPCI" -> "webapp.Producto.estado.Rechazado por UPCI" [label=rechazado_UPCI]
+		"webapp.Producto.estado.Rechazado por líder" -> "webapp.Producto.estado.Enviado al líder" [label=envia_a_lider]
+		"webapp.Producto.estado.Enviado al líder" -> "webapp.Producto.estado.Rechazado por líder" [label=rechaza_lider]
+		"webapp.Producto.estado.Enviado al líder" -> "webapp.Producto.estado.Enviado a UPCI" [label=envia_a_UPCI]
+		"webapp.Producto.estado.Rechazado por UPCI" -> "webapp.Producto.estado.Enviado a UPCI" [label=envia_a_UPCI]
+		"webapp.Producto.estado.Borrador" -> "webapp.Producto.estado.Enviado al líder" [label=envia_a_lider]
+		"webapp.Producto.estado.Enviado a UPCI" -> "webapp.Producto.estado.Finalizado" [label=acepta_UPCI]
+	}
+}
